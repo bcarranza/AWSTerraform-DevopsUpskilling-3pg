@@ -1,31 +1,35 @@
-# Subnet Public 1
+# Create an AWS Subnet resource for public instances in the first availability zone (us-east-1a)
 resource "aws_subnet" "public-subnet-1" {
-  vpc_id                  = aws_vpc.this.id
-  cidr_block              = local.vpc.cidr_subnet1_public
-  map_public_ip_on_launch = true
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.this.id               # ID of the VPC in which the subnet will be created
+  cidr_block              = local.vpc.cidr_subnet1_public # CIDR block for the subnet
+  map_public_ip_on_launch = true                         # Assign public IPs to instances launched in this subnet
+  availability_zone       = "us-east-1a"                 # Availability zone for the subnet
+
   tags = {
-    Name        = "${local.prefix}-public-subnet-1"
-    Environment = local.env
-    Path        = "${basename(abspath(path.module))}/subnets-public.tf"
+    Name        = "${local.prefix}-public-subnet-1"      # Tag the subnet with a descriptive name
+    Environment = local.env                              # Tag the subnet with the environment
+    Path        = "${basename(abspath(path.module))}/subnets-public.tf"   # Tag the subnet with the configuration file path
   }
+
   depends_on = [
-    aws_vpc.this
+    aws_vpc.this                                         # Ensure VPC is created before the subnet
   ]
 }
 
-# Subnet Public 2
+# Create an AWS Subnet resource for public instances in the second availability zone (us-east-1b)
 resource "aws_subnet" "public-subnet-2" {
-  vpc_id                  = aws_vpc.this.id
-  cidr_block              = local.vpc.cidr_subnet2_public
-  map_public_ip_on_launch = true
-  availability_zone = "us-east-1b"
+  vpc_id                  = aws_vpc.this.id               # ID of the VPC in which the subnet will be created
+  cidr_block              = local.vpc.cidr_subnet2_public # CIDR block for the subnet
+  map_public_ip_on_launch = true                         # Assign public IPs to instances launched in this subnet
+  availability_zone       = "us-east-1b"                 # Availability zone for the subnet
+
   tags = {
-    Name        = "${local.prefix}-public-subnet-2"
-    Environment = local.env
-    Path        = "${basename(abspath(path.module))}/subnets-public.tf"
+    Name        = "${local.prefix}-public-subnet-2"      # Tag the subnet with a descriptive name
+    Environment = local.env                              # Tag the subnet with the environment
+    Path        = "${basename(abspath(path.module))}/subnets-public.tf"   # Tag the subnet with the configuration file path
   }
+
   depends_on = [
-    aws_vpc.this
+    aws_vpc.this                                         # Ensure VPC is created before the subnet
   ]
 }

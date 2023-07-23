@@ -1,32 +1,33 @@
-# Creating a mainly security group 
+# Create an AWS Security Group resource for public instances
 resource "aws_security_group" "public" {
-  name_prefix = "${local.prefix}-sg-public"
-  description = "Public SG Group"
-  vpc_id      = aws_vpc.this.id
+  name_prefix = "${local.prefix}-sg-public"      # Name prefix for the security group
+  description = "Public SG Group"               # Description for the security group
+  vpc_id      = aws_vpc.this.id                 # ID of the VPC in which the security group will be created
+
+  # Ingress rule: Allow incoming traffic on port 80 (HTTP) from the security group associated with the Public ALB
   ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    # Damos permiso desde el mundo exterior
-    # Es probable que queramos dar solo acceso desde el load balancer mas adelante.
-    security_groups = [aws_security_group.alb-public.id]
+    from_port       = 80                       # Ingress rule: Allow incoming traffic on port 80 (HTTP)
+    to_port         = 80                       # Ingress rule: Allow incoming traffic on port 80 (HTTP)
+    protocol        = "tcp"                    # Ingress rule: Allow TCP traffic
+    security_groups = [aws_security_group.alb-public.id]  # Ingress rule: Allow traffic from the Public ALB's security group
   }
+
+  # Ingress rule: Allow all incoming traffic (from any port) from any IP
   ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    # Damos permiso desde el mundo exterior
-    # Es probable que queramos dar solo acceso desde el load balancer mas adelante.
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0                           # Ingress rule: Allow all incoming traffic (from any port)
+    to_port     = 0                           # Ingress rule: Allow all incoming traffic (to any port)
+    protocol    = "-1"                        # Ingress rule: Allow all protocols
+    cidr_blocks = ["0.0.0.0/0"]                # Ingress rule: Allow incoming traffic from any IP (0.0.0.0/0)
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0                           # Egress rule: Allow all outgoing traffic
+    to_port     = 0                           # Egress rule: Allow all outgoing traffic
+    protocol    = "-1"                        # Egress rule: Allow all protocols
+    cidr_blocks = ["0.0.0.0/0"]                # Egress rule: Allow outgoing traffic to any IP (0.0.0.0/0)
   }
+
   depends_on = [
-    aws_vpc.this
+    aws_vpc.this                             # Ensure VPC is created before the security group
   ]
 }
