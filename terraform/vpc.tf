@@ -1,5 +1,5 @@
-# Crear VPC en AWS
 resource "aws_vpc" "this" {
+# Crear VPC en AWS
   cidr_block       = local.vpc.cidr
   instance_tenancy = "default"
   tags = {

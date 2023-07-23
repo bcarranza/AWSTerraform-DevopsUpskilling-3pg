@@ -1,51 +1,49 @@
-# aws-3tier-umg-is-2023
-- AWS in 3 capas desplegado en terraform.
+# aws-terraform-devops-upskilling-3pg
+- AWS in 3 tiers deployed using Terraform.
 
 # Configuración
-- variables de configuración 
-
+- Configuration variables
+  
 ```
 export AWS_ACCESS_KEY_ID="TU_ACCESS_KEY"
 export AWS_SECRET_ACCESS_KEY="TU_SECRET_KEY"
 ```
 
-# Como crear la infraestructura.
+# How to create the infrastructure.
 ```
 terraform init
 terraform plan 
 terraform apply
 ```
 
-# Como destruir la infraestructura.
+# How to destroy the infrastructure.
 ```
 terraform destroy
 ```
 
-# Infrastructura esperada
+# Expected Infrastructure
 ![](./img/infra.png)
 
-# Como conectarse a una ec2
+# How to connect to an EC2 instance
 ```
 chmod 400 generated_key.pem
 ssh -i generated_key.pem ubuntu@<EC2_INSTANCE_PUBLIC_IP>
 ```
-Si no esta la llave presente la debes de crear en las instancias anidadas.
+If the key is not present, you must create it on the nested instances.
 
-# Definición de las capas
-## Capa de presentación
-- Este es el nivel más alto de la aplicación, responsable de recolectar la información. Proporciona una interfaz de usuario y maneja la interacción con el usuario, envía contenido a los navegadores en forma de HTML/JS/CSS y se comunica con otras capas para proporcionar los resultados al navegador/lado del cliente.
+# Definition of the layers
 
-## Capa de lógica
-- También conocida como la capa de aplicación. Contiene un conjunto de reglas para procesar información, lógica empresarial y puede acomodar a muchos usuarios. A veces también se le llama middleware. Procesa las entradas recibidas de los clientes e interactúa con la base de datos y se ejecuta en un servidor web.
+# Presentation layer
+This is the topmost level of the application, responsible for gathering information. It provides a user interface and handles user interactions, sending content to browsers in the form of HTML/JS/CSS and communicates with other layers to provide results to the browser/client-side.
 
-## Capa de datos
-- Una base de datos, que comprende tanto conjuntos de datos como el software de sistema de gestión de bases de datos o RDBMS que gestiona y proporciona acceso a los datos (back-end). Proporciona seguridad, integridad de datos y soporte a la aplicación.
+# Logic layer
+Also known as the application layer. It contains a set of rules for processing information, business logic, and can accommodate many users. It is sometimes also referred to as middleware. It 
 
+# Data layer
+A database, comprising both datasets and the database management system or RDBMS software that manages and provides access to the data (back-end). It provides data security, integrity, and support to the application.
 
 # Application 
-
 https://github.com/JamesonC/CRUD-react-express-node-postgresql
-
 
 # References
 https://aws.plainenglish.io/3-tier-architecture-in-aws-e410d610ed74
