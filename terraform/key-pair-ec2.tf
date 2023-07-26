@@ -17,5 +17,5 @@ resource "local_file" "private_key" {
 
 # How to connect
 # chmod 400 generated_key.pem
-# ssh -i generated_key.pem ubuntu@<EC2_INSTANCE_PUBLIC_IP>
+# ssh -i generated_key.pem ec2-user@<EC2_INSTANCE_PUBLIC_IP>
 

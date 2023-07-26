@@ -5,8 +5,8 @@ resource "aws_security_group" "alb-private" {
   vpc_id      = aws_vpc.this.id                        # ID of the VPC in which the security group will be created
 
   ingress {
-    from_port   = 8081                      # Ingress rule: Allow incoming traffic on port 8081
-    to_port     = 8081                      # Ingress rule: Allow incoming traffic on port 8081
+    from_port   = 80                      # Ingress rule: Allow incoming traffic on port 8081
+    to_port     = 80                      # Ingress rule: Allow incoming traffic on port 8081
     protocol    = "tcp"                     # Ingress rule: Allow TCP traffic
     cidr_blocks = ["0.0.0.0/0"]              # Ingress rule: Allow incoming traffic from any IP (0.0.0.0/0)
   }
