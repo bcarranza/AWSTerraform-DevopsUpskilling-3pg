@@ -33,3 +33,8 @@ resource "aws_subnet" "db-subnet-2" {
     aws_vpc.this                                          # Ensure VPC is created before the subnet
   ]
 }
+
+resource "aws_db_subnet_group" "db" {
+  name       = "db_subnet_group"
+  subnet_ids = [aws_subnet.db-subnet-1.id, aws_subnet.db-subnet-2.id]
+}

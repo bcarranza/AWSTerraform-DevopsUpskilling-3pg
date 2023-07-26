@@ -25,14 +25,8 @@ output "load_balancer_internal_dns" {
   description = "DNS name for the internal Application Load Balancer"
 }
 
-# Output the private DNS name of the database EC2 instance (in the `aws_instance` resource).
-output "database_private_dns" {
-  value       = aws_instance.ec2-db-1[0].private_dns
-  description = "DNS name for the database"
+# Output the private DNS name of the database RDS instance (in the `aws_instance` resource).
+output "db_instance_endpoint" {
+  value       = aws_db_instance.myinstance.endpoint
 }
 
-# Output the private IP address of the database EC2 instance (in the `aws_instance` resource).
-output "database_private_ip" {
-  value       = aws_instance.ec2-db-1[0].private_ip
-  description = "IP address for the internal Application Load Balancer"
-}
