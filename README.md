@@ -1,5 +1,6 @@
 # aws-terraform-devops-upskilling-3pg
 - AWS in 3 tiers deployed using Terraform.
+- Slides: https://view.genial.ly/64b8efc25ec0af0018526256
 
 # Configuración
 - Configuration variables
