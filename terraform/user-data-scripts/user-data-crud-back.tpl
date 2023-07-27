@@ -3,7 +3,7 @@ yum update -y
 yum install -y telnet 
 
 dnf update -y
-dnf install mariadb105-server
+dnf install -y mariadb105-server
 
 yum install -y httpd.x86_64
 systemctl start httpd.service
