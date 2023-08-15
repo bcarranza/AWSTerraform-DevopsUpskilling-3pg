@@ -27,7 +27,7 @@ locals {
 	cidr_subnet2_public  = "172.16.3.0/24"
 
     # CIDR blocks for database subnets in one availability zone
-    cidr_subnet1_db      = "192.168.0.0/24"
-	cidr_subnet2_db      = "192.168.1.0/24"
+    cidr_subnet1_db      = "172.16.4.0/24"
+	cidr_subnet2_db      = "172.16.5.0/24"
   }
 }
