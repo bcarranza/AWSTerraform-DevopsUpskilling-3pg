@@ -8,7 +8,7 @@ locals {
 
   # AWS region where the resources will be provisioned
   aws = {
-    region = "us-east-1"
+    region = "us-east-2"
   }
 
   # VPC and subnet CIDR blocks for defining IP address ranges
