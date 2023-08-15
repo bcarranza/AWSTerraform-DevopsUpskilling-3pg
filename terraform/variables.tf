@@ -19,12 +19,15 @@ locals {
     # CIDR blocks for private subnets in one availability zone
 	# Step 1 set new CIDRs: set private subnet cidr to 172.16.1.0
     cidr_subnet1_private = "172.16.1.0/24"
+	cidr_subnet2_private = "172.16.2.0/24"
 
     # CIDR blocks for public subnets in one availability zone
 	# Step 1 set new CIDRs: set public subnet cidr to 172.16.0.0
     cidr_subnet1_public  = "172.16.0.0/24"
+	cidr_subnet2_public  = "172.16.3.0/24"
 
     # CIDR blocks for database subnets in one availability zone
     cidr_subnet1_db      = "192.168.4.0/24"
+	cidr_subnet2_db      = "192.168.5.0/24"
   }
 }
