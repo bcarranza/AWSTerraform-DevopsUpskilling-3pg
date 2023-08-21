@@ -33,3 +33,21 @@ resource "aws_subnet" "public-subnet-2" {
     aws_vpc.this                                         # Ensure VPC is created before the subnet
   ]
 }
+
+# Create an AWS Subnet resource for public instances in the first WEST availability zone (us-east-1b) for module 3
+resource "aws_subnet" "public-subnet-west-1" {
+  vpc_id                  = aws_vpc.this.id               # ID of the VPC in which the subnet will be created
+  cidr_block              = local.vpc.cidr_public_subnet # CIDR block for the subnet
+  map_public_ip_on_launch = true                         # Assign public IPs to instances launched in this subnet
+  availability_zone       = "us-west-1a"                 # Availability zone for the subnet
+
+  tags = {
+    Name        = "${local.prefix}-public-subnet-west-1"      # Tag the subnet with a descriptive name
+    Environment = local.env                              # Tag the subnet with the environment
+    Path        = "${basename(abspath(path.module))}/subnets-public.tf"   # Tag the subnet with the configuration file path
+  }
+
+  depends_on = [
+    aws_vpc.this                                         # Ensure VPC is created before the subnet
+  ]
+}
