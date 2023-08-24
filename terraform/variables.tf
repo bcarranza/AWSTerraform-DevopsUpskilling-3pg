@@ -27,4 +27,10 @@ locals {
     cidr_subnet1_db      = "192.168.4.0/24"
     cidr_subnet2_db      = "192.168.5.0/24"
   }
+
+  newvpc = {
+    cidr    = "172.16.0.0/16"        # CIDR block for the VPC
+    cidr_private_subnet = "172.16.0.0/24"
+    cidr_public_subnet = "172.16.1.0/24"
+  }
 }

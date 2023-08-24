@@ -56,20 +56,23 @@ Follow these steps to set up the lab environment from scratch:
 2. Create a new policy with the following permissions (you can name it "terraform-policy"):
 ```
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:*",
-                "s3:*",
-                "elasticloadbalancing:*",
-                "logs:*",
-                "rds:*"
-            ],
-            "Resource": "*"
-        }
-    ]
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Allow",
+			"Action": [
+				"iam:CreateServiceLinkedRole",
+				"rds:*",
+				"s3:*",
+				"logs:*",
+				"ec2:DescribeAccountAttributes",
+				"ec2:*",
+				"elasticloadbalancing:*"
+			],
+			"Resource": "*"
+		}
+	]
 }
 ```
 ![](./img/policy.png)
