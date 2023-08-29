@@ -11,6 +11,7 @@ resource "aws_instance" "ec2-public-1" {
     Name        = "${local.prefix}-ec2-public-1"      # Name tag for identifying the instance
     Environment = local.env                            # Environment tag for categorization
     Path        = "${basename(abspath(path.module))}/ec2-public.tf"   # Path tag for tracking the configuration file
+    Company = "3PG" # adding new tag
   }
   depends_on = [
     aws_security_group.public,             # Ensure security group is created before the instance
@@ -31,6 +32,7 @@ resource "aws_instance" "ec2-public-2" {
     Name        = "${local.prefix}-ec2-public-2"      # Name tag for identifying the instance
     Environment = local.env                            # Environment tag for categorization
     Path        = "${basename(abspath(path.module))}/11-ec2-public.tf"  # Path tag for tracking the configuration file
+    Company = "3PG" # adding new tag
   }
   depends_on = [
     aws_security_group.public,             # Ensure security group is created before the instance

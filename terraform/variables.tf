@@ -27,4 +27,16 @@ locals {
     cidr_subnet1_db      = "192.168.4.0/24"
     cidr_subnet2_db      = "192.168.5.0/24"
   }
+
+  # VPC 2 and subnet CIDR blocks for defining IP address ranges
+  vpc2 = {
+    cidr    = "172.16.0.0/16"        # CIDR block for the VPC
+
+    # CIDR blocks for private subnets in two availability zones
+    cidr_subnet_private = "172.16.0.0/24" # had to change it to /24 due errors in the plan
+
+    # CIDR blocks for public subnets in two availability zones
+    cidr_subnet_public  = "172.16.1.0/24" # had to change it to /24 due errors in the plan
+
+  }
 }
