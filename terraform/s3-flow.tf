@@ -6,7 +6,7 @@ resource "aws_kms_key" "mykey" {
 }
 
 resource "aws_s3_bucket" "this" {
-  bucket = "435924829664-bc3pg-${local.prefix}-vpc-flow-log"   # Name of the S3 bucket, generated based on the provided prefix and additional text "bc-"
+  bucket = "435924829664-bc4pg-${local.prefix}-vpc-flow-log"   # Name of the S3 bucket, generated based on the provided prefix and additional text "bc-"
 
   tags = {
     Name        = "${local.prefix}-vpc-flow-log"   # Tag the bucket with a descriptive name
