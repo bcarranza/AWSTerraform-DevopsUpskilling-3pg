@@ -12,8 +12,9 @@ resource "aws_db_instance" "myinstance" {
   skip_final_snapshot  = true
   publicly_accessible =  false
   db_subnet_group_name = aws_db_subnet_group.db.name   
+  port                 = "3340"  
 }
-
+# Step 4 change port
 #Testing
 # Telnet: telnet myrdsinstance.ciwxmuhfadid.us-east-1.rds.amazonaws.com 3306
 # Mysql:  mysql -u myrdsuser -p  -h myrdsinstance.ciwxmuhfadid.us-east-1.rds.amazonaws.com -P 3306
