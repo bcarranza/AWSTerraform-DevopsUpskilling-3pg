@@ -7,11 +7,11 @@ resource "aws_s3_bucket" "this" {
     Environment = local.env                         # Tag the bucket with the environment
     Path        = "${basename(abspath(path.module))}/s3-flow.tf"   # Tag the bucket with the configuration file path
   }
-
+  
   # Add encryption for flow bucket.
   server_side_encryption_configuration {
     rule {
-      apply_server_side_encyrption_by_default {
+      apply_server_side_encryption_by_default {
         sse_algorithm = "AES256"
       }
     }
