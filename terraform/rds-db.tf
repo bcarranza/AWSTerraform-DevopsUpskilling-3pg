@@ -12,6 +12,7 @@ resource "aws_db_instance" "myinstance" {
   skip_final_snapshot  = true
   publicly_accessible =  false
   db_subnet_group_name = aws_db_subnet_group.db.name   
+  port = 3340   # change default port for database
 }
 
 #Testing
