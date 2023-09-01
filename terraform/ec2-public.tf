@@ -8,9 +8,10 @@ resource "aws_instance" "ec2-public-1" {
   user_data                   = data.template_file.user_data.rendered # User data script from the "data" block
   key_name                    = aws_key_pair.generated_key.key_name    # Key pair for SSH access
   tags = {
-    Name        = "${local.prefix}-ec2-public-1"      # Name tag for identifying the instance
+    Name        = "${local.prefix}-ec2-public-1"       # Name tag for identifying the instance
     Environment = local.env                            # Environment tag for categorization
     Path        = "${basename(abspath(path.module))}/ec2-public.tf"   # Path tag for tracking the configuration file
+    Company     = "3pg"                                # add company tag
   }
   depends_on = [
     aws_security_group.public,             # Ensure security group is created before the instance
