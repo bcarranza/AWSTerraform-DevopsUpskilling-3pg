@@ -34,7 +34,7 @@
 
 # Create an Elastic IP (EIP) resource for the NAT Gateway.
 resource "aws_eip" "nat" {
-  vpc = true
+  domain = "vpc"
 
   # Define tags for the Elastic IP resource.
   tags = {
