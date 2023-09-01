@@ -33,9 +33,9 @@ locals {
     cidr    = "172.16.0.0/16"        # CIDR block for the VPC
 
     # CIDR blocks for private subnet in one availability zones
-    cidr_subnet1_private = "172.168.0.0/24"
+    cidr_subnet1_private = "172.16.0.0/24"
 
     # CIDR blocks for public subnet in one availability zones
-    cidr_subnet1_public  = "172.168.1.0/24"
+    cidr_subnet1_public  = "172.16.1.0/24"
   }
 }

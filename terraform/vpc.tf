@@ -16,7 +16,7 @@ resource "aws_vpc" "this" {
 
 # Create an AWS VPC resource with the specified CIDR block
 resource "aws_vpc" "vpc2" {
-  cidr_block       = local.vpc.cidr              # CIDR block for the VPC
+  cidr_block       = local.vpc2.cidr              # CIDR block for the VPC
   instance_tenancy = "default"                   # Instance tenancy set to "default" for EC2 instances
 
   tags = {

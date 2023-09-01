@@ -7,6 +7,7 @@ resource "aws_instance" "ec2-public-1" {
   subnet_id                   = "${aws_subnet.public-subnet-1.id}"    # Place the instance in public subnet 1
   user_data                   = data.template_file.user_data.rendered # User data script from the "data" block
   key_name                    = aws_key_pair.generated_key.key_name    # Key pair for SSH access
+  disable_api_termination     = false
   tags = {
     Name        = "${local.prefix}-ec2-public-1"      # Name tag for identifying the instance
     Environment = local.env                            # Environment tag for categorization
@@ -28,6 +29,7 @@ resource "aws_instance" "ec2-public-2" {
   subnet_id                   = "${aws_subnet.public-subnet-2.id}"    # Place the instance in public subnet 2
   user_data                   = data.template_file.user_data.rendered # User data script from the "data" block
   key_name                    = aws_key_pair.generated_key.key_name    # Key pair for SSH access
+  disable_api_termination     = false
   tags = {
     Name        = "${local.prefix}-ec2-public-2"      # Name tag for identifying the instance
     Environment = local.env                            # Environment tag for categorization
