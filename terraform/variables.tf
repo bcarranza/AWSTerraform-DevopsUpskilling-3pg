@@ -1,7 +1,7 @@
 # Define local variables to make resource names and configurations more readable and maintainable
 locals {
   # Prefix for resource names to ensure uniqueness and easy identification
-  prefix = "umg-is-tf"
+  prefix = "umg-is-tf-atb3pg"
 
   # Environment where the infrastructure is being deployed (e.g., "dev", "prod")
   env    = "dev"
