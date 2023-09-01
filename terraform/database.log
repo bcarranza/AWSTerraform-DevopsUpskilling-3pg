@@ -1,0 +1,92 @@
+abugorski@RufusDraco:~/IdeaProjects/DevOps_Lab3/terraform$ terraform apply -auto-approve
+abugorski@RufusDraco:~/IdeaProjects/DevOps_Lab3/terraform$ chmod 400 generated_key.pem
+abugorski@RufusDraco:~/IdeaProjects/DevOps_Lab3/terraform$ ssh -i generated_key.pem ec2-user@184.73.123.138
+The authenticity of host '184.73.123.138 (184.73.123.138)' can't be established.
+ED25519 key fingerprint is SHA256:g6RLbu9IIMrxAiVE0NGacvRYJj+p91dgtzFu1+XYauE.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '184.73.123.138' (ED25519) to the list of known hosts.
+
+A newer release of "Amazon Linux" is available.
+  Version 2023.1.20230725:
+  Version 2023.1.20230809:
+  Version 2023.1.20230825:
+Run "/usr/bin/dnf check-release-update" for full release and version update info
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-192-168-2-246 ~]$ curl myrdsinstance.cyrdng9pjoc9.us-east-1.rds.amazonaws.com
+^C
+[ec2-user@ip-192-168-2-246 ~]$ curl myrdsinstance.cyrdng9pjoc9.us-east-1.rds.amazonaws.com:3340
+^C
+[ec2-user@ip-192-168-2-246 ~]$ ^C
+[ec2-user@ip-192-168-2-246 ~]$ ^C
+[ec2-user@ip-192-168-2-246 ~]$ ^C
+[ec2-user@ip-192-168-2-246 ~]$ curl backend-1719921560.us-east-1.elb.amazonaws.com
+Bonjour le monde from Backend ip-192-168-0-195.ec2.internal
+[ec2-user@ip-192-168-2-246 ~]$ touch generated_key.pem
+[ec2-user@ip-192-168-2-246 ~]$ nano generated_key.pem
+[ec2-user@ip-192-168-2-246 ~]$ nano generated_key.pem
+[ec2-user@ip-192-168-2-246 ~]$ chmod 400 generated_key.pem
+[ec2-user@ip-192-168-2-246 ~]$ ssh -i generated_key.pem  ec2-user@192.168.0.195
+The authenticity of host '192.168.0.195 (192.168.0.195)' can't be established.
+ED25519 key fingerprint is SHA256:2XDVKXCsY6Nfd7Z7HLOIs6Ay2czxpUX15hQPrNzxNdw.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.0.195' (ED25519) to the list of known hosts.
+
+A newer release of "Amazon Linux" is available.
+  Version 2023.1.20230725:
+  Version 2023.1.20230809:
+  Version 2023.1.20230825:
+Run "/usr/bin/dnf check-release-update" for full release and version update info
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-192-168-0-195 ~]$ telnet myrdsinstance.cyrdng9pjoc9.us-east-1.rds.amazonaws.com 3340
+Trying 192.168.4.228...
+Connected to myrdsinstance.cyrdng9pjoc9.us-east-1.rds.amazonaws.com.
+Escape character is '^]'.
+J
+5.7.42
+({t[p%mysql_native_passwordConnection closed by foreign host.
+[ec2-user@ip-192-168-0-195 ~]$ mysql -u myrdsuser -p  -h myrdsinstance.cyrdng9pjoc9.us-east-1.rds.amazonaws.com -P 3340
+Enter password:
+ERROR 1045 (28000): Access denied for user 'myrdsuser'@'192.168.0.195' (using password: YES)
+[ec2-user@ip-192-168-0-195 ~]$ mysql -u myrdsuser -p  -h myrdsinstance.cyrdng9pjoc9.us-east-1.rds.amazonaws.com -P 3340
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 5.7.42 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| innodb             |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.001 sec)
+
+MySQL [(none)]>

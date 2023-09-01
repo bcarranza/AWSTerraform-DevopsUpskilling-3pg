@@ -1,7 +1,7 @@
 # Define local variables to make resource names and configurations more readable and maintainable
 locals {
   # Prefix for resource names to ensure uniqueness and easy identification
-  prefix = "umg-is-tf"
+  prefix = "umg-is-tf-atb3pg"
 
   # Environment where the infrastructure is being deployed (e.g., "dev", "prod")
   env    = "dev"
@@ -27,4 +27,11 @@ locals {
     cidr_subnet1_db      = "192.168.4.0/24"
     cidr_subnet2_db      = "192.168.5.0/24"
   }
+
+  new_vpc = {
+    cidr    = "172.16.0.0/16"        # CIDR block for the new VPC
+    cidr_subnet_publica = "172.16.0.0/16"
+    cidr_subnet_privada = "172.16.1.0/16"
+  }
+
 }

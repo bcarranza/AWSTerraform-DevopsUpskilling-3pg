@@ -1,0 +1,88 @@
+Script started on 2023-08-31 22:27:40-04:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="422" LINES="28"]
+[?2004h]0;abugorski@RufusDraco: ~/IdeaProjects/DevOps_Lab3/terraform[01;32mabugorski@RufusDraco[00m:[01;34m~/IdeaProjects/DevOps_Lab3/terraform[00m$ terraform apply -auto-approve
+[?2004l
+[0m[1mtls_private_key.this: Refreshing state... [id=fd82e9f64629f067ab7d53f1acb2ce5ec0bc6ab2][0m
+[0m[1mlocal_file.private_key: Refreshing state... [id=bd1a78ce7d8db5e363f5324be2ccd34fa6b06cb0][0m
+[0m[1maws_key_pair.generated_key: Refreshing state... [id=generated_key][0m
+[0m[1maws_eip.nat: Refreshing state... [id=eipalloc-060d4eec6088f53a9][0m
+[0m[1maws_s3_bucket.this: Refreshing state... [id=435924829664-bc3pg-umg-is-tf-atb3pg-vpc-flow-log][0m
+[0m[1maws_vpc.this: Refreshing state... [id=vpc-00f44dcb83264735e][0m
+[0m[1maws_flow_log.this: Refreshing state... [id=fl-05ccbaa515bc10521][0m
+[0m[1maws_subnet.public-subnet-1: Refreshing state... [id=subnet-0a88ddac041bc0bdc][0m
+[0m[1maws_subnet.public-subnet-2: Refreshing state... [id=subnet-02e1eff7fe0a7243c][0m
+[0m[1maws_internet_gateway.this: Refreshing state... [id=igw-05ad892bc241c788b][0m
+[0m[1maws_subnet.db-subnet-2: Refreshing state... [id=subnet-0d9dcf98eb09bef61][0m
+[0m[1maws_lb_target_group.external-target-elb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:targetgroup/External-ALB-TG/bc52eca61bb33e1e][0m
+[0m[1maws_subnet.private-subnet-2: Refreshing state... [id=subnet-0a6f64c1c2930fe78][0m
+[0m[1maws_security_group.db: Refreshing state... [id=sg-05465f4e6ca92d6b3][0m
+[0m[1maws_security_group.alb-public: Refreshing state... [id=sg-0db8c7f10ae99d1a9][0m
+[0m[1maws_lb_target_group.internal-target-alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:targetgroup/Internal-ALB-TG/061eb3b6138b2b17][0m
+[0m[1maws_subnet.private-subnet-1: Refreshing state... [id=subnet-099f3cc0fceaa7e6e][0m
+[0m[1maws_subnet.db-subnet-1: Refreshing state... [id=subnet-08b44e8fb3fc55974][0m
+[0m[1maws_security_group.alb-private: Refreshing state... [id=sg-0856941d7d04af2a3][0m
+[0m[1maws_nat_gateway.nat: Refreshing state... [id=nat-056633dbd13a95a16][0m
+[0m[1maws_route_table.route: Refreshing state... [id=rtb-02c77f0b318740cad][0m
+[0m[1maws_security_group.public: Refreshing state... [id=sg-0bd9d2f8ca1bab733][0m
+[0m[1maws_lb.external-alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:loadbalancer/app/frontend/0ecf88667bce0918][0m
+[0m[1maws_security_group.private: Refreshing state... [id=sg-0dd16251e950808c3][0m
+[0m[1maws_lb.internal-alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:loadbalancer/app/backend/82e1275acfbd249d][0m
+[0m[1maws_route_table.private: Refreshing state... [id=rtb-0acfa2d20238e9b87][0m
+[0m[1maws_db_subnet_group.db: Refreshing state... [id=db_subnet_group][0m
+[0m[1maws_instance.ec2-private-1[0]: Refreshing state... [id=i-0ae05d8cede34fbb7][0m
+[0m[1maws_route_table_association.private-1: Refreshing state... [id=rtbassoc-00949f773562bbfa8][0m
+[0m[1maws_route_table_association.private-2: Refreshing state... [id=rtbassoc-08c2c4f4754dcd3bf][0m
+[0m[1maws_route_table_association.db-1: Refreshing state... [id=rtbassoc-00e847197a8a9a957][0m
+[0m[1maws_route_table_association.db-2: Refreshing state... [id=rtbassoc-00d25350a9dc7e190][0m
+[0m[1maws_route_table_association.rt1: Refreshing state... [id=rtbassoc-05827ca4ca9b2d285][0m
+[0m[1maws_route_table_association.rt2: Refreshing state... [id=rtbassoc-0d962b1e6f7484fc7][0m
+[0m[1maws_lb_listener.external-elb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:listener/app/frontend/0ecf88667bce0918/6cd03d8918a44f52][0m
+[0m[1mdata.template_file.user_data: Reading...[0m[0m
+[0m[1mdata.template_file.db: Reading...[0m[0m
+[0m[1maws_lb_listener.internal-alb: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:listener/app/backend/82e1275acfbd249d/752170cad370a0e0][0m
+[0m[1mdata.template_file.user_data: Read complete after 0s [id=44bf4eedef374c4a3e4da8fde839b3233e537ccfd95eba3ad81f2036965384e0][0m
+[0m[1mdata.template_file.db: Read complete after 0s [id=c22543ce8501e755aebb7d0638d85b5ddaec2c443c6de47a676c04ea58712783][0m
+[0m[1maws_instance.ec2-private-2[0]: Refreshing state... [id=i-07556e3f602c59d57][0m
+[0m[1maws_instance.ec2-public-1[0]: Refreshing state... [id=i-0b00fd9c9753c147f][0m
+[0m[1maws_instance.ec2-public-2[0]: Refreshing state... [id=i-064c041a4c6b5e6db][0m
+[0m[1maws_db_instance.myinstance: Refreshing state... [id=db-M3ZKZXWR5PHNSHHJON3FLKDHPU][0m
+[0m[1maws_lb_target_group_attachment.internal-attachment-1: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:targetgroup/Internal-ALB-TG/061eb3b6138b2b17-20230901021729983000000009][0m
+[0m[1maws_lb_target_group_attachment.internal-attachment-2: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:targetgroup/Internal-ALB-TG/061eb3b6138b2b17-2023090102194831460000000d][0m
+[0m[1maws_lb_target_group_attachment.external-attachment-1: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:targetgroup/External-ALB-TG/bc52eca61bb33e1e-2023090102194847020000000f][0m
+[0m[1maws_lb_target_group_attachment.external-attachment-2: Refreshing state... [id=arn:aws:elasticloadbalancing:us-east-1:363409661950:targetgroup/External-ALB-TG/bc52eca61bb33e1e-2023090102194832830000000e][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mArgument is deprecated[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  with aws_eip.nat,
+[33m│[0m [0m  on nat-gateway.tf line 37, in resource "aws_eip" "nat":
+[33m│[0m [0m  37:   vpc = [4mtrue[0m[0m
+[33m│[0m [0m
+[33m│[0m [0muse domain attribute instead
+[33m│[0m [0m
+[33m│[0m [0m(and 3 more similar warnings elsewhere)
+[33m╵[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mdb_instance_endpoint = "myrdsinstance.cyrdng9pjoc9.us-east-1.rds.amazonaws.com:3340"
+flow_log_id = "fl-05ccbaa515bc10521"
+load_balancer_external_dns = "frontend-72328447.us-east-1.elb.amazonaws.com"
+load_balancer_internal_dns = "backend-1719921560.us-east-1.elb.amazonaws.com"
+s3_bucket_name = "435924829664-bc3pg-umg-is-tf-atb3pg-vpc-flow-log"
+vpc_id = "vpc-00f44dcb83264735e"
+[?2004h]0;abugorski@RufusDraco: ~/IdeaProjects/DevOps_Lab3/terraform[01;32mabugorski@RufusDraco[00m:[01;34m~/IdeaProjects/DevOps_Lab3/terraform[00m$ curl frontend-72328447.us-east-1.epb.amazonaws.com
+[?2004l
+Bonjour le monde from Frontend ip-192-168-3-61.ec2.internal
+[?2004h]0;abugorski@RufusDraco: ~/IdeaProjects/DevOps_Lab3/terraform[01;32mabugorski@RufusDraco[00m:[01;34m~/IdeaProjects/DevOps_Lab3/terraform[00m$ curl backend-1719921560.us-east-1.elb.amazonaws.com
+[?2004l
+Bonjour le monde from Backend ip-192-168-0-195.ec2.internal
+[?2004h]0;abugorski@RufusDraco: ~/IdeaProjects/DevOps_Lab3/terraform[01;32mabugorski@RufusDraco[00m:[01;34m~/IdeaProjects/DevOps_Lab3/terraform[00m$ exit
+[?2004l
+exit
+
+Script done on 2023-08-31 22:29:28-04:00 [COMMAND_EXIT_CODE="0"]

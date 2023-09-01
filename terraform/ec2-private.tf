@@ -24,13 +24,14 @@ resource "aws_instance" "ec2-private-2" {
   instance_type               = "t2.micro"             # FREE TIER
   count                       = 1
   vpc_security_group_ids      = ["${aws_security_group.private.id}"]   # Attach security group for the instance
-  subnet_id                   = "${aws_subnet.private-subnet-2.id}"    # Place the instance in private subnet 2
+  subnet_id                   = "${aws_subnet.private-subnet-2.id}"    # Place the instance in private subnet 2terra
   user_data                   = data.template_file.db.rendered         # User data script from the "data" block
   key_name                    = aws_key_pair.generated_key.key_name    # Key pair for SSH access
   tags = {
     Name        = "${local.prefix}-ec2-private-2"      # Name tag for identifying the instance
     Environment = local.env                            # Environment tag for categorization
     Path        = "${basename(abspath(path.module))}/ec2-private.tf"   # Path tag for tracking the configuration file
+    Company     = "3pg"                                # add company tag
   }
   depends_on = [
     aws_security_group.private,              # Ensure security group is created before the instance

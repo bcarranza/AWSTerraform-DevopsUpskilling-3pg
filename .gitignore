@@ -24,3 +24,5 @@ terraform.rc
 
 # key pair
 *.pem
+
+.idea/*

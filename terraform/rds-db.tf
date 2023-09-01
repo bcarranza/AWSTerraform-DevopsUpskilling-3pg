@@ -11,7 +11,8 @@ resource "aws_db_instance" "myinstance" {
   vpc_security_group_ids = ["${aws_security_group.db.id}"]
   skip_final_snapshot  = true
   publicly_accessible =  false
-  db_subnet_group_name = aws_db_subnet_group.db.name   
+  db_subnet_group_name = aws_db_subnet_group.db.name
+  port                 = 3340                                   # change the default port to 3340
 }
 
 #Testing
