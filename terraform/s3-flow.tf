@@ -7,4 +7,17 @@ resource "aws_s3_bucket" "this" {
     Environment = local.env                         # Tag the bucket with the environment
     Path        = "${basename(abspath(path.module))}/s3-flow.tf"   # Tag the bucket with the configuration file path
   }
+
+  # so I don't have to manually delete the bucket manually, https://dev.to/the_cozma/terraform-handling-the-deletion-of-a-non-empty-aws-s3-bucket-3jg3
+  force_destroy = true
+
+  #encrypt the s3 bucket
+  # ??? seems like it should be "aws_s3_bucket_" prefix a la https://stackoverflow.com/a/75925563/254477 , but doesn't seem to work
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
