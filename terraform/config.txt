@@ -1,0 +1,6 @@
+db_instance_endpoint = "myrdsinstance.crmeyy5ino5x.us-east-1.rds.amazonaws.com:3306"
+flow_log_id = "fl-0dc2e7b64e38780a0"
+load_balancer_external_dns = "frontend-1260945123.us-east-1.elb.amazonaws.com"
+load_balancer_internal_dns = "backend-1166641585.us-east-1.elb.amazonaws.com"
+s3_bucket_name = "435924829664-bc3pg-umg-is-tf-vpc-flow-log"
+vpc_id = "vpc-0711cf94f34f08bea"
