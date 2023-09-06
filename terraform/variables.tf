@@ -27,4 +27,16 @@ locals {
     cidr_subnet1_db      = "192.168.4.0/24"
     cidr_subnet2_db      = "192.168.5.0/24"
   }
+
+  # VPC and CIDR definition for LAB
+
+  vpc_alt = {
+    cidr    = "172.16.0.0/16"        # CIDR block for the VPC
+
+    # CIDR for private subnet
+    cidr_subnet1_private = "172.16.0.0/24"
+
+    # CIDR for public subnet
+    cidr_subnet1_public  = "172.16.1.0/24"
+  }
 }
