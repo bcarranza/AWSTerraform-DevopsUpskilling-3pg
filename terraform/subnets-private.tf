@@ -33,3 +33,21 @@ resource "aws_subnet" "private-subnet-2" {
     aws_vpc.this                                          # Ensure VPC is created before the subnet
   ]
 }
+
+# A new AWS Subnet resource for private instances was created in order to handle new CIDR
+resource "aws_subnet" "new-private-subnet" {
+  vpc_id                  = aws_vpc.new_vpc.id                # ID of the VPC in which the subnet will be created
+  cidr_block              = local.new_vpc.cidr_subnet_private # CIDR block for the subnet
+  map_public_ip_on_launch = false                             # Do not assign public IPs to instances launched in this subnet
+  availability_zone       = "us-east-1b"                      # Availability zone for the subnet
+
+  tags = {
+    Name        = "${local.prefix}-new-private-subnet"        # Tag the subnet with a descriptive name
+    Environment = local.env                                   # Tag the subnet with the environment
+    Path        = "${basename(abspath(path.module))}/subnets-private.tf"   # Tag the subnet with the configuration file path
+  }
+
+  depends_on = [
+    aws_vpc.new_vpc                                           # Ensure VPC is created before the subnet
+  ]
+}
