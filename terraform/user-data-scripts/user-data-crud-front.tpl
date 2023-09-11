@@ -3,4 +3,5 @@ yum update -y
 yum install -y httpd.x86_64
 systemctl start httpd.service
 systemctl enable httpd.service
-echo "Hello World from Frontend $(hostname -f)" > /var/www/html/index.html
+# Apache site message changed from Hello World to Bonjour le monde
+echo "Bonjour le monde from Frontend $(hostname -f)" > /var/www/html/index.html
