@@ -8,3 +8,13 @@ resource "aws_s3_bucket" "this" {
     Path        = "${basename(abspath(path.module))}/s3-flow.tf"   # Tag the bucket with the configuration file path
   }
 }
+#add server side encryption for upskilling
+resource "aws_s3_bucket_server_side_encryption_configuration" "upskilling_encryption" {
+  bucket = aws_s3_bucket.this.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "AES256"
+    }
+  }
+}

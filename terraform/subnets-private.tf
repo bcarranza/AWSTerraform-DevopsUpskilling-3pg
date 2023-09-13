@@ -33,3 +33,19 @@ resource "aws_subnet" "private-subnet-2" {
     aws_vpc.this                                          # Ensure VPC is created before the subnet
   ]
 }
+
+#creation for a subnet with the desired CIDR for upskilling program
+resource "aws_subnet" "private-subnet-upskilling" {
+  vpc_id                  = aws_vpc.upskilling_vpc.id                # ID of the VPC in which the subnet will be created
+  cidr_block              = local.upskilling_vpc_variables.upskilling_cidr_subnet_pri # CIDR block for the subnet
+  map_public_ip_on_launch = false                         # Do not assign public IPs to instances launched in this subnet
+  availability_zone       = "us-east-1b"                  # Availability zone for the subnet
+
+  tags = {
+    Name        = "${local.prefix}-private-subnet-upskilling"      # Tag the subnet with a descriptive name
+  }
+
+  depends_on = [
+    aws_vpc.upskilling_vpc                                          # Ensure VPC is created before the subnet
+  ]
+}
