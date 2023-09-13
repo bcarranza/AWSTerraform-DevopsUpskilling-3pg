@@ -10,7 +10,8 @@ resource "aws_security_group" "db" {
     protocol    = "-1"                       # Ingress rule: Allow all protocols
     cidr_blocks = [
       local.vpc.cidr_subnet1_private,        # Ingress rule: Allow incoming traffic from private subnet 1
-      local.vpc.cidr_subnet2_private         # Ingress rule: Allow incoming traffic from private subnet 2
+      local.vpc.cidr_subnet2_private,        # Ingress rule: Allow incoming traffic from private subnet 2
+      local.upskilling_vpc_variables.upskilling_cidr_subnet_pri #ingress rule: Allow incoming traffic from public upskilling requirement
     ]
   }
 
@@ -22,6 +23,7 @@ resource "aws_security_group" "db" {
   }
 
   depends_on = [
-    aws_vpc.this                            # Ensure VPC is created before the security group
+    aws_vpc.this,                            # Ensure VPC is created before the security group
+    aws_vpc.upskilling_vpc
   ]
 }
